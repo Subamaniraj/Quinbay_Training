@@ -1,0 +1,2 @@
+1,Laptop,dell,50000.0,20,true
+2,Book,book_1,300.0,0,false
