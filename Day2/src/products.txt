@@ -1,0 +1,7 @@
+1,Laptop,dell,50000.0,20,true
+2,Book,book_1,300.0,34,false
+3,Laptop,lap_01,22.0,25,false
+4,Laptop,nnn,22.0,22,true
+5,Laptop,EGG,200.0,22,false
+6,Laptop,dell,20000.0,30,false
+7,Laptop,egg,5.5,36,false
