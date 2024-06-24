@@ -1,0 +1,2 @@
+4,electronics
+1,groceries
