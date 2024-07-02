@@ -1,0 +1,306 @@
+review:
+Colour shade less
+In Mobile view align centre and space above
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blibli</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            background-color:#3085ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
+            color: white;
+        }
+
+        .footer {
+            background-color:#3085ff;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: auto;
+            color: white;
+        }
+
+        #searchCards {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 40%;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .form-container {
+            position: sticky;
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            margin-right: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            top: 50px; 
+            height: calc(100vh - 140px); 
+        }
+
+        .form-container h4 {
+            margin-bottom: 20px;
+            color: #4a148c;
+        }
+
+        .form-container label,
+        .form-container input,
+        .form-container button {
+            margin-bottom: 15px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border 0.3s;
+        }
+
+        .form-container input:focus {
+            border: 1px solid #3085ff;
+            outline: none;
+        }
+
+        .form-container button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #3085ff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #0760de;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .card {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color:  #3085ff;
+        }
+
+        .card-brand, .card-price, .card-ram, .card-rom {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .card-price {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .add-to-cart-btn {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #3085ff;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color:  #0749a5;
+        }
+
+        footer h3 {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 100%;
+                margin-bottom: 20px;
+                position: static;
+                height: auto;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+       <!---<img src="https://play-lh.googleusercontent.com/JrOTu8TUhJ6wgQTLAwkTRxEjCNn2De2JSWqAk4AIL02VM6R4SIpORWBuYodGDaViRSI" alt="LOGO" width="5%" height="5%"/>-->
+        <h2><b>Blibli</b></h2>
+        <input type="search" id="searchCards" placeholder="Search...">
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h4>Add Mobile</h4>
+            <label for="pname">Name:</label>
+            <input type="text" id="pname" required>
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" required>
+            <label for="ram">RAM:</label>
+            <input type="text" id="ram" required>
+            <label for="rom">ROM:</label>
+            <input type="text" id="rom" required>
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" required>
+            <button type="button" onclick="alert('Added successful')">Submit</button>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Samsung S3</h2>
+                    <p class="card-brand">Samsung</p>
+                    <p class="card-price">₹30,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://tiimg.tistatic.com/fp/1/007/574/vivo-mobile-phone-7-38mm-ultra-smooth-body-170g-light-2-5d-adjusted-outline-for-a-great-hold-703.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Vivo Y23</h2>
+                    <p class="card-brand">Vivo</p>
+                    <p class="card-price">₹20,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Oppo S20</h2>
+                    <p class="card-brand">Oppo</p>
+                    <p class="card-price">₹18,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Oppo S20</h2>
+                    <p class="card-brand">Oppo</p>
+                    <p class="card-price">₹18,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Oppo S20</h2>
+                    <p class="card-brand">Oppo</p>
+                    <p class="card-price">₹18,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Oppo S20</h2>
+                    <p class="card-brand">Oppo</p>
+                    <p class="card-price">₹18,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.deepspecs.com/wp-content/uploads/2023/01/1-honor-x7a-deepspecs-com-300x300.jpg" alt="Product Image">
+                <div class="card-content">
+                    <h2 class="card-title">Oppo S20</h2>
+                    <p class="card-brand">Oppo</p>
+                    <p class="card-price">₹18,000</p>
+                    <p class="card-ram">6GB RAM</p>
+                    <p class="card-rom">128GB ROM</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <h3>&copy; 2024 Blibli. All rights reserved.</h3>
+    </footer>
+</body>
+</html>
